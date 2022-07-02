@@ -1,0 +1,12 @@
+---
+
+- hosts: all
+  become: true
+  tasks:
+
+  - name: install wireguard
+    package:
+      name: wireguard
+      state: latest
+      update_cache: yes
+    when: ansible_distribution == "Ubuntu"
